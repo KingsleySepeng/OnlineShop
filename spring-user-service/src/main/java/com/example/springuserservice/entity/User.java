@@ -1,15 +1,16 @@
-package main.java.com.example.springuserservice.entity;
+package com.example.springuserservice.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GenerationType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.time.LocalDateTime;
 
-import javax.annotation.Generated;
-import javax.xml.bind.annotation.XmlID;
-
-@entity
+@Entity
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GeneratedType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
@@ -27,9 +28,9 @@ public class User {
     public Long getId(){return id;}
 
     public void setName(String name){this.name = name;}
-    public Long getName(){return name;}
+    public String getName(){return name;}
 
     public void setCreatedAt(LocalDateTime createdAt){this.createdAt = createdAt;}
-    public Long getCreatedAt(){return createdAt;}
+    public LocalDateTime getCreatedAt(){return createdAt;}
 
 }
