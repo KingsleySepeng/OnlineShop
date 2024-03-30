@@ -18,11 +18,6 @@ public class User {
     private LocalDateTime createdAt;
 
     public User (){}
-    public User (String name,LocalDateTime createdAt)
-        {
-        this.name=name;
-        this.createdAt = createdAt;
-        }
         
     public void setId(Long id){this.id = id;}
     public Long getId(){return id;}
