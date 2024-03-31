@@ -1,7 +1,6 @@
 package com.example.springuserservice.service;
 
 import java.time.LocalDateTime;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.springuserservice.entity.User;
 import com.example.springuserservice.repository.UserRepository;
@@ -10,7 +9,6 @@ import com.example.springuserservice.repository.UserRepository;
 public class UserService {
    private final UserRepository userRepository;
 
-   @Autowired
    public UserService(UserRepository userRepository){
     this.userRepository = userRepository;
    }

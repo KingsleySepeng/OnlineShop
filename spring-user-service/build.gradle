@@ -21,7 +21,7 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'mysql:mysql-connector-java:8.0.33'
-	implementation 'javax.persistence:javax.persistence-api:2.2'
+	// implementation 'javax.persistence:javax.persistence-api:2.2'
 }
 
 tasks.named('bootBuildImage') {
