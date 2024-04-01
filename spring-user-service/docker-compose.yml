@@ -10,4 +10,38 @@ services:
       - "8080:8080"
     environment:
       JAVA_OPTS: "-Xmx512m"
+    depends_on:
+      - mysql-db
+    networks:
+      - spring-user-service-mysql-network
+
+  mysql-db:
+    image: mysql:latest
+    container_name: mysql-container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: user-service-db
+    volumes:
+      # - mysql-data:/var/lib/mysql
+      - ./user.sql:/docker-entrypoint-initdb.d/user.sql
+      # - ./user-service.sql:/docker-entrypoint-initdb.d/user-service.sql
+    ports:
+      - "3306:3306"
+    networks:
+      my-network:
+        ipv4_address: 172.21.0.2
   
+networks:
+  my-network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.21.0.0/16
+  spring-user-service-mysql-network:
+    driver: bridge
+
+# volumes:
+#   mysql-data:
+
+      
