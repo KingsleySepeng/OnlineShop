@@ -23,9 +23,8 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: user-service-db
     volumes:
-      # - mysql-data:/var/lib/mysql
-      - ./user.sql:/docker-entrypoint-initdb.d/user.sql
-      # - ./user-service.sql:/docker-entrypoint-initdb.d/user-service.sql
+      # - ./user.sql:/docker-entrypoint-initdb.d/user.sql
+      - ../mysql-scripts/user-service.sql:/docker-entrypoint-initdb.d/user-service.sql
     ports:
       - "3306:3306"
     networks:
@@ -40,8 +39,5 @@ networks:
         - subnet: 172.21.0.0/16
   spring-user-service-mysql-network:
     driver: bridge
-
-# volumes:
-#   mysql-data:
 
       
