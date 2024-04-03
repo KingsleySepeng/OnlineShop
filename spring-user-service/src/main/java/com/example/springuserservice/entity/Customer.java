@@ -22,6 +22,7 @@ public class Customer {
     private String phoneNumber;
     private String address;
     private Timestamp createdAt;
+    //foreign key for user id from userAuthentication table
 
     public Customer(){}
 
