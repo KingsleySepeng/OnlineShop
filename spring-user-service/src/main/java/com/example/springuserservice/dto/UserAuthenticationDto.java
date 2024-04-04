@@ -1,18 +1,8 @@
-package com.example.springuserservice.entity;
+package com.example.springuserservice.dto;
 
 import java.security.Timestamp;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Table;
-import jakarta.persistence.Id;
-
-@Entity
-@Table(name="user_authentication")
-public class UserAuthentication {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class UserAuthenticationDto {
     private Long id;
     private String email;
     private String passwordHash;
@@ -21,9 +11,9 @@ public class UserAuthentication {
     private Timestamp lastLogin;
     private String role;
 
-    public UserAuthentication(){}
-    
-    public UserAuthentication(Long id,String email,String passwordHash,Boolean isActive,Boolean isBlocked,Timestamp lastLogin,String role)
+    public UserAuthenticationDto(){}
+
+    public UserAuthenticationDto(Long id,String email,String passwordHash,Boolean isActive,Boolean isBlocked,Timestamp lastLogin,String role)
     {this.id=id;
     this.email=email;
     this.passwordHash=passwordHash;
@@ -31,7 +21,7 @@ public class UserAuthentication {
     this.isBlocked=isBlocked;
     this.lastLogin=lastLogin;
     this.role=role; }
-    
+
     public Long getId(){return id;}
     public void setId(Long id){ this.id = id;}
 
@@ -45,7 +35,7 @@ public class UserAuthentication {
     public void setIsActive(Boolean isActive){this.isActive = isActive;}
 
     public Boolean getIsBlocked(){return isBlocked;}
-    public void setIsBlocked(Boolean isActive){this.isActive=isActive;}
+    public void setIsBlocked(Boolean isBlocked){this.isBlocked=isBlocked;}
 
     public Timestamp getLastLogin(){return lastLogin;}
     public void setLastLogin(Timestamp lastLogin){this.lastLogin=lastLogin;}

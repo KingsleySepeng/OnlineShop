@@ -1,20 +1,10 @@
-package com.example.springuserservice.entity;
+package com.example.springuserservice.dto;
 
 import java.sql.Timestamp;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.Table;
+import com.example.springuserservice.entity.UserAuthentication;
 
-@Entity
-@Table(name="customer")
-public class Customer {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class SalesRepresentativeDto {
     private Long id;
     private Long userId;
     private String firstName;
@@ -22,13 +12,16 @@ public class Customer {
     private String email;
     private String phoneNumber;
     private String address;
+    private String department;
+    private String role;
+    private String adminRole;
     private Timestamp createdAt;
-    //foreign key for user id from userAuthentication table
-    @JoinColumn
-    private UserAuthentication userAuthentication;
-    public Customer(){}
-    
-    public Customer(Long id,Long userId,String firstName,String lastName,String email,String phoneNumber,String address,Timestamp createdAt,UserAuthentication userAuthentication)
+
+   
+    private UserAuthenticationDto userAuthenticationDto;
+    public SalesRepresentativeDto(){}
+
+    public SalesRepresentativeDto(Long id,Long userId,String firstName,String lastName,String email,String phoneNumber,String address,String department,String role,String adminRole,Timestamp createdAt,UserAuthenticationDto userAuthenticationDto)
     {this.id=id;
     this.userId=userId;
     this.firstName=firstName;
@@ -36,10 +29,12 @@ public class Customer {
     this.email=email;
     this.phoneNumber=phoneNumber;
     this.address=address;
+    this.department=department;
+    this.role=role;
+    this.adminRole=adminRole;
     this.createdAt=createdAt;
-    this.userAuthentication=userAuthentication;
-    }
-
+    this.userAuthenticationDto=userAuthenticationDto;}
+    
     public Long getId(){return id;}
     public void setId(Long id){this.id = id;}
 
@@ -60,11 +55,19 @@ public class Customer {
 
     public String getAddress(){return address;}
     public void setAddress(String address){this.address = address;}
-    
+
+    public String getDepartment(){return department;}
+    public void setDepartment(String department){this.department = department;}
+
+    public String getRole(){return role;}
+    public void setRole(String role){this.role = role;}
+
+    public String getAdminRole(){return adminRole;}
+    public void setAdminRole(String adminRole){this.adminRole = adminRole;}
+
     public Timestamp getCreatedAt(){return createdAt;}
     public void setCreatedAt(Timestamp createdAt){this.createdAt = createdAt;}
 
-    public UserAuthentication getUserAuthentication(){return userAuthentication;}
-    public void setUserAuthentication(UserAuthentication userAuthentication){this.userAuthentication=userAuthentication;}
+    public UserAuthenticationDto getUserAuthenticationDto(){return userAuthenticationDto;}
+    public void setUserAuthenticationDto(UserAuthenticationDto userAuthenticationDto){this.userAuthenticationDto=userAuthenticationDto;}
 }
-

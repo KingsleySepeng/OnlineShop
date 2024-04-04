@@ -1,9 +1,11 @@
 package com.example.springuserservice.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.example.springuserservice.entity.User;
 import org.springframework.stereotype.Repository;
 
+import com.example.springuserservice.entity.LoginHistory;
+
 @Repository
-public interface UserRepository extends JpaRepository<User,Long> {
+public interface LoginHistoryRepository extends JpaRepository<LoginHistory,Long> {
+    
 }

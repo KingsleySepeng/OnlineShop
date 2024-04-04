@@ -1,20 +1,8 @@
-package com.example.springuserservice.entity;
+package com.example.springuserservice.dto;
 
 import java.sql.Timestamp;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.Table;
-
-@Entity
-@Table(name="customer")
-public class Customer {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class CustomerDto {
     private Long id;
     private Long userId;
     private String firstName;
@@ -23,12 +11,11 @@ public class Customer {
     private String phoneNumber;
     private String address;
     private Timestamp createdAt;
-    //foreign key for user id from userAuthentication table
-    @JoinColumn
-    private UserAuthentication userAuthentication;
-    public Customer(){}
+    private UserAuthenticationDto userAuthenticationDto;
+
+    public CustomerDto(){}
     
-    public Customer(Long id,Long userId,String firstName,String lastName,String email,String phoneNumber,String address,Timestamp createdAt,UserAuthentication userAuthentication)
+    public CustomerDto(Long id,Long userId,String firstName,String lastName,String email,String phoneNumber,String address,Timestamp createdAt)
     {this.id=id;
     this.userId=userId;
     this.firstName=firstName;
@@ -36,10 +23,8 @@ public class Customer {
     this.email=email;
     this.phoneNumber=phoneNumber;
     this.address=address;
-    this.createdAt=createdAt;
-    this.userAuthentication=userAuthentication;
-    }
-
+    this.createdAt=createdAt;}
+    
     public Long getId(){return id;}
     public void setId(Long id){this.id = id;}
 
@@ -64,7 +49,6 @@ public class Customer {
     public Timestamp getCreatedAt(){return createdAt;}
     public void setCreatedAt(Timestamp createdAt){this.createdAt = createdAt;}
 
-    public UserAuthentication getUserAuthentication(){return userAuthentication;}
-    public void setUserAuthentication(UserAuthentication userAuthentication){this.userAuthentication=userAuthentication;}
+    public UserAuthenticationDto getUserAuthenticationDto(){return userAuthenticationDto;}
+    public void setUserAuthenticationDto(UserAuthenticationDto userAuthenticationDto){this.userAuthenticationDto=userAuthenticationDto;}
 }
-
